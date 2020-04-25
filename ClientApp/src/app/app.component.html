@@ -1,0 +1,17 @@
+<div>
+  <span>Open two browsers instance to see result</span>
+  <p>Type your name</p><input type="text" (keyup)="sendData()" [(ngModel)] ="signalRService.textData">
+  {{signalRService.textData}}
+</div>
+<br/>
+
+<div style="display: block;" *ngIf='signalRService.data'>
+  <canvas baseChart
+          [datasets]="signalRService.data"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="chartLegend"
+          [chartType]="chartType"
+          [colors]="colors"
+          (chartClick)="chartClicked($event)"></canvas>
+</div>
